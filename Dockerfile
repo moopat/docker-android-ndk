@@ -1,10 +1,11 @@
 FROM saschpe/android-sdk:28_28.0.3
-LABEL maintainer="Sascha Peilicke <sascha@peilicke.de"
+LABEL maintainer="Markus Deutsch <markus.deutsch@bikecitizens.net>"
 LABEL description="Android NDK"
 
 ENV NDK_ROOT $ANDROID_SDK_ROOT/ndk-bundle
 
 RUN yes | sdkmanager \
+	"ndk;21.3.6528147" \
         "cmake;3.6.4111459" \
         "cmake;3.10.2.4988404" \
         "ndk-bundle" >/dev/null \
@@ -32,3 +33,4 @@ RUN yes | sdkmanager \
         $NDK_ROOT/build/core/toolchains/mips* \
     && sdkmanager --list | sed -e '/Available Packages/q'
 
+RUN yes | sdkmanager --install 21.3.6528147
