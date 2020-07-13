@@ -33,4 +33,3 @@ RUN yes | sdkmanager \
         $NDK_ROOT/build/core/toolchains/mips* \
     && sdkmanager --list | sed -e '/Available Packages/q'
 
-RUN yes | sdkmanager --install 21.3.6528147
